@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mSoftCode</title>
+    <!-- style file -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Add bootstrap file -->
+    <link rel="stylesheet" href="./assets/bootstrap-library/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/bootstrap-library/bootstrap/js/bootstrap.bundle.min.js">
+
+    <!-- Font Awesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Remix Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="falling-rectangles-container">
+        <!-- Right side rectangles -->
+        <div class="falling-rectangle rect1"></div>
+        <div class="falling-rectangle rect2"></div>
+        <div class="falling-rectangle rect3"></div>
+
+        <!-- Left side rectangles -->
+        <div class="falling-rectangle rect4"></div>
+        <div class="falling-rectangle rect5"></div>
+        <div class="falling-rectangle rect6"></div>
+    </div>
+
+    <!-- Header section start -->
+    <div id="scrollProgressBarContainer">
+        <div id="scrollProgressBar"></div>
+    </div>
+    <header id="msc-header-main-section">
+        <div class="msc-header-wrapper-section">
+            <div class="container">
+               <!-- Mobile Navigation Header -->
+               <div class="row align-items-center d-md-none justify-content-between">
+                <div class="col-3 text-left">
+                    <button class="btn" onclick="openMobileMenu()" style="padding: 0 !important;">
+                        <i class="ri-menu-line" style="font-size: 24px;"></i>
+                    </button>
+                </div>
+                <div class="col-9 d-flex justify-content-start">
+                    <div class="msc-nav-brand">
+                        <a href="#" class="navbar-brand">
+                            <img src="./assets/img/msoftcode-logo.png" alt="logo" class="img-fluid" style="max-width: 120px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+
+                <!-- Desktop Navigation -->
+                <div class="row d-none d-md-flex align-items-center mac-main-nav">
+                    <div class="col-md-3">
+                        <a href="#" class="navbar-brand">
+                            <img src="./assets/img/msoftcode-logo.png" alt="logo" class="img-fluid"
+                                style="max-width: 255px;">
+                        </a>
+                    </div>
+                    <div class="col-md-9">
+                        <ul class="msc-navigation-itms d-flex justify-content-end align-items-center gap-3 mb-0">
+                            <li class="msc-navigation-itms-li"><a href="#" class="active">Home</a></li>
+                            <li class="msc-navigation-itms-li"><a href="#">About</a></li>
+                            <li class="msc-navigation-itms-li"><a href="#">Products</a></li>
+                            <li class="msc-navigation-itms-li"><a href="#">Affiliates</a></li>
+                            <li class="msc-navigation-itms-li"><a href="#">Bundle Deal</a></li>
+                            <li class="msc-navigation-itms-li"><a href="#">Blog</a></li>
+                            <li class="msc-support-li">
+                                Support System
+                                <i class="ri ri-arrow-down-s-line" id="msc-support-icon"></i>
+                                <div class="msc-drop-down">
+                                    <div class="msc-support-items">
+                                        <a class="itmes" href="tel:8881088820"><i class="ri-phone-line"></i> 88810
+                                            88820</a>
+                                        <a class="itmes" href="javascript:void(Tawk_API.toggle())"><i
+                                                class="ri-message-2-line"></i> Live Chat</a>
+                                        <a class="itmes" href="https://globehost.com/support/" target="_blank"><i
+                                                class="ri-question-line"></i> Help Center</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- <button class="msc-login-btn">Login</button> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Fullscreen Overlay Menu -->
+        <div id="mobileMenuOverlay" class="mobile-overlay-menu col-6">
+            <div class="mobile-overlay-header d-flex justify-content-between align-items-center px-2">
+                <a href="#">
+                    <img src="./assets/img/msoftcode-logo.png" alt="logo" style="max-width: 100px; padding-left: 10px;">
+                </a>
+                <button class="btn" onclick="closeMobileMenu()">
+                    <i class="ri-close-line" style="font-size: 20px;"></i>
+                </button>
+            </div>
+        
+            <div class="mobile-overlay-body">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                    <li><a href="#">Bundle Deal</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+        
+            <!-- 👇 Contact Info with Icons -->
+            <div class="mobile-contact-info">
+                <a class="contact-link" href="https://maps.google.com" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123, MSoftCode Street, New Delhi</span>
+                </a>
+                <a class="contact-link" href="tel:8881088820">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>88810 88820</span>
+                </a>
+                <a class="contact-link" href="https://globehost.com/support/" target="_blank">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help Center</span>
+                </a>
+            
+                <div class="social-icons">
+                    <a href="#"><div class="icon-box"><i class="fab fa-facebook-f"></i></div></a>
+                    <a href="#"><div class="icon-box"><i class="fab fa-twitter"></i></div></a>
+                    <a href="#"><div class="icon-box"><i class="fab fa-linkedin-in"></i></div></a>
+                    <a href="#"><div class="icon-box"><i class="fab fa-instagram"></i></div></a>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </header>
+
+    <!-- Header section end -->
+
+    <!-- Hero section start -->
+    <section id="msc-hero-main-section">
+        <div class="msc-hero-wrapper-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="msc-hero-left-section">
+                            <h1 class="mb-3">
+                                Empowering with <br>
+                                <span class="highlighted-text">Smart IT Solutions</span>
+                            </h1>
+                            <h3 class="mb-3">Web | App | Cloud | UI/UX | Digital Services</h3>
+                            <p class="mb-3">
+                                mSoftCode empowers businesses with 10+ years of IT expertise.
+                                <br> Delivering smart, scalable, and innovative tech solutions worldwide.
+                            </p>
+                            
+
+                            <div class="d-flex gap-3">
+                                <a href="#" class="msc-btn   msc-product px-4">Explore Services</a>
+                                <a href="#" class="msc-btn   msc-call-back">Request a Callback</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Image -->
+                    <div class="col-lg-5 d-none d-lg-block msc-right-hero-section">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="./assets/img/Group 2.png" alt="Web Hosting Illustration" class="img-fluid"
+                                style="height: 360px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero section end -->
+
+
+    <!-- all script -->
+    <script src="./assets/bootstrap-library/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openMobileMenu() {
+            document.getElementById("mobileMenuOverlay").classList.add("show-menu");
+        }
+
+        function closeMobileMenu() {
+            document.getElementById("mobileMenuOverlay").classList.remove("show-menu");
+        }
+    </script>
+
+    <!-- scroll  -->
+    <script>
+        // Scroll Progress Logic
+        window.onscroll = function () {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("scrollProgressBar").style.width = scrolled + "%";
+        };
+    </script>
+
+    <!-- dropdown -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const supportItem = document.querySelector('.msc-support-li');
+            const dropdown = supportItem.querySelector('.msc-drop-down');
+            const icon = supportItem.querySelector('i');
+
+            supportItem.addEventListener('click', function (e) {
+                e.stopPropagation();  // Prevent click from closing the dropdown immediately
+                dropdown.classList.toggle('show');  // Toggle 'show' class to display the dropdown
+                icon.classList.toggle('msc-rotate-icon');  // Toggle rotation of the icon
+            });
+
+            document.addEventListener('click', function () {
+                dropdown.classList.remove('show');  // Hide dropdown if clicked outside
+                icon.classList.remove('msc-rotate-icon');  // Reset icon rotation
+            });
+
+            document.querySelector('.msc-support-li').addEventListener('click', function () {
+                // Toggle active class for the clicked item
+                this.classList.toggle('active');
+            });
+
+        });
+
+
+    </script>
+
+    <script>
+        const navLinks = document.querySelectorAll('.msc-navigation-itms a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+
+            link.addEventListener('mouseleave', () => {
+                link.classList.remove('active');
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
