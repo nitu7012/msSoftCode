@@ -32,7 +32,7 @@ body,
 html {
     background: url("../img/hero-bg.png") no-repeat center center fixed;
     background-size: cover;
-    height: 100vh;
+    height: 80vh;
     font-family: var(--font-primary);
 
 }
@@ -248,7 +248,7 @@ html {
     }
 
     100% {
-        transform: translateY(400px) rotate(30deg);
+        transform: translateY(100vh) rotate(30deg);
         opacity: 0;
     }
 }
@@ -274,7 +274,16 @@ html {
     width: 100%;
     background: linear-gradient(to right, #b9e4fe, #ffc1c9);
 }
-
+@media (min-width: 1024px) {
+    #msc-header-main-section {
+      position: relative; /* Ensure relative positioning for ::after */
+    }
+  
+    #msc-header-main-section::after {
+      top: 4.7rem !important;
+    }
+  }
+  
 .msc-navigation-bar-section {
     font-family: var(--primary-font);
     background-color: var(--nav-bg-color);
@@ -342,6 +351,9 @@ html {
     .highlighted-text {
         font-size: 2rem !important;
     }
+    body {
+        overflow-x: hidden; /* Prevent unwanted horizontal scroll */
+    }
 }
 
 /* Mobile screen */
@@ -390,11 +402,11 @@ html {
 .mobile-overlay-body ul li a {
     text-decoration: none;
     color: black;
-    font-size: 12px;
+    font-size: 14px;
 }
 .mobile-contact-info {
-    padding-left: 10px;
-    padding-right: 8px;
+    padding-left: 24px;
+    padding-right: 16px;
     margin-top: 1rem;
 }
 
@@ -404,18 +416,19 @@ html {
     gap: 8px;
     color: #000;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 12px;
     margin-bottom: 10px;
 }
 
 .mobile-contact-info i {
     font-size: 12px;
     color: #000;
+    text-align: center;
 }
 .icon-box {
     background-color: #e0f1fe;
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -444,10 +457,20 @@ html {
 /* ================= end header section =================== */
 
 /* ==========start Hero Section ========== */
+@media (min-width: 1024px) {
+    #msc-hero-main-section {
+        padding: 80px 80px !important;
+    }
+  
+    
+  }
 #msc-hero-main-section {
     background: transparent;
     padding: 60px 40px;
     color: var(--text-color);
+    position: relative; /* make hero section above the rectangles */
+    z-index: 2;
+    height: 400px;
 }
 
 .msc-hero-left-section h1 {
