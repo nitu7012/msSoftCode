@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Locations Map</title>
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <!-- Style -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    #map {
+      height: 500px;
+      width: 100%;
+      margin: 1rem auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Our Offices in India</h2>
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <!-- Script to load the map -->
+  <script>
+    // Coordinates for Chandigarh & Jind
+    const chandigarh = [30.7046, 76.7179];
+    const jind = [29.3151, 76.3169];
+
+    // Initialize the map
+    const map = L.map('map').setView([30.0, 76.5], 8);
+
+    // Add tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+    }).addTo(map);
+
+    // Add Chandigarh marker
+    L.marker(chandigarh)
+      .addTo(map)
+      .bindPopup("<b>Chandigarh Office</b><br>Sector 74, Phase 8B, Mohali.")
+      .openPopup();
+
+    // Add Jind marker
+    L.marker(jind)
+      .addTo(map)
+      .bindPopup("<b>Jind Office</b><br>Central Bank Building, Haryana.");
+
+  </script>
+</body>
+</html>

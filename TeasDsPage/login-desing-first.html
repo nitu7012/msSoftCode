@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-group {
+            position: relative;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: transparent;
+        }
+
+        .form-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #888;
+            font-size: 16px;
+            background-color: white;
+            transition: 0.2s ease all;
+            padding: 0 4px;
+            pointer-events: none;
+        }
+
+        .form-control:focus+.form-label,
+        .form-control:not(:placeholder-shown)+.form-label {
+            top: -10px;
+            left: 8px;
+            font-size: 12px;
+            color: black;
+        }
+
+        .form-control:focus {
+            border: 1px solid black;
+            outline: none;
+            box-shadow: none;
+        }
+
+        .dropdown-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .msc-img {
+            height: 400px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .msc-hospital-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .msc-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .msc-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.689) 40%, rgba(0, 0, 0, 0.804) 100%);
+            z-index: 1;
+        }
+
+        .msc-overlay-text {
+            position: absolute;
+            z-index: 2;
+            color: #fff;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 1rem 20px;
+            width: 100%;
+        }
+
+        .msc-overlay-text h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .msc-overlay-text p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid black;
+            border-radius: 4px;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="checkbox"]:hover {
+            border-color: #333;
+        }
+
+        input[type="checkbox"]:checked {
+            border-color: #333;
+        }
+
+        input[type="checkbox"]:focus {
+            border-color: #0079C2;
+            box-shadow: none;
+        }
+
+        @media (max-width: 768px) {
+            .msc-overlay-text h3 {
+                font-size: 22px;
+            }
+
+            .msc-overlay-text p {
+                font-size: 14px;
+            }
+
+            .msc-heading {
+                font-size: 1.4rem !important;
+            }
+
+            .text-decoration-none {
+                font-size: 14px !important;
+            }
+            .msc-form-section{
+                width: 100% !important;
+                padding: 16px !important;
+            }
+            .msc-condition{
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                gap: 1rem !important;
+                font-size: 14px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid msc-signup-container d-flex align-items-center justify-content-center vh-100">
+        <div class="row msc-signup-box shadow-lg rounded-4 overflow-hidden w-100" style="max-width: 1000px;">
+
+            <!-- Left Panel -->
+            <div class="col-md-6 p-5 msc-left-panel d-flex flex-column justify-content-between bg-white msc-form-section">
+                <div>
+                    <h4 class="mb-4 msc-logo">Welcome</h4>
+                    <h2 class="fw-bold msc-heading">Login To Doctor Panel</h2>
+
+                    <form>
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder=" " id="userid" required />
+                            <label for="userid" class="form-label">Enter Id*</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder=" " id="email" required />
+                            <label for="email" class="form-label">Email*</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder=" " id="password" required />
+                            <label for="password" class="form-label">Password*</label>
+                            <i class="fa-solid fa-eye dropdown-icon" id="togglePassword"></i>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Remember me
+                                </label>
+                            </div>
+                            <a href="#" class="text-decoration-none small">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark w-100 mt-4">Login</button>
+                    </form>
+
+                </div>
+
+                <!-- <div class="d-flex justify-content-between mt-4 msc-condition">
+                    <a href="#" class="text-muted">Already have an account? <strong>Sign in</strong></a>
+                    <a href="#" class="text-muted">Terms & Conditions</a>
+                </div> -->
+            </div>
+
+            <!-- Right Panel (Hidden on Mobile) -->
+            <div class="col-md-6 p-0 msc-right-panel d-none d-md-block">
+                <div class="msc-image-container">
+                    <div class="msc-img">
+                        <img src="../assets/img/hos.jpg" alt="meeting" class="msc-hospital-img" />
+                    </div>
+                    <div class="msc-gradient-overlay"></div>
+                    <div class="msc-overlay-text">
+                        <h3>Empower Your Journey</h3>
+                        <p>Explore features, connect with professionals, and manage everything with one powerful
+                            platform.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Password Toggle Logic
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            togglePassword.classList.toggle('fa-eye');
+            togglePassword.classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+
+</html>

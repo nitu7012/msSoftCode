@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Profile</title>
+    <!-- Google Fonts - Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        :root {
+            --primary-blue: #0079c2;
+            --primary-red: #e6001f;
+            --heading-color: #333;
+            --subheading-color: #444;
+            --text-color: #555;
+            --muted-color: #777;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .msc-profile-box {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            background-color: #fff;
+        }
+
+        .msc-profile-left-sidebar {
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            position: relative;
+            border-right: 4px solid transparent;
+        }
+
+        .msc-profile-left-sidebar::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary-blue);
+            animation: borderAnimation 2s infinite alternate;
+        }
+
+        @keyframes borderAnimation {
+            0% {
+                background: var(--primary-blue);
+            }
+
+            50% {
+                background: var(--primary-red);
+            }
+
+            100% {
+                background: var(--primary-blue);
+            }
+        }
+
+        .msc-profile-img {
+            width: 100%;
+            max-width: 180px;
+            border-radius: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .msc-profile-details {
+            width: 100%;
+        }
+
+        .msc-work-title {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            padding: 14px 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .msc-work-title:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .msc-work-title strong {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #02253b;
+            display: inline-block;
+            margin-bottom: 0.2rem;
+        }
+
+        .msc-work-title small {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .msc-work-title span {
+            color: #005f99;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .msc-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .msc-skill li {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            background-color: #f1f1f1;
+            padding: 8px 12px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .msc-skill li:hover {
+            background-color: #0c70ae9e;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-blue);
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: #e6001f;
+            border: none;
+        }
+
+        .btn-success:hover {
+            background-color: #02253b;
+            text-decoration: none;
+        }
+
+        .nav-tabs {
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: #02253b;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-tabs .nav-link.active {
+            border-color: var(--primary-blue);
+            background-color: transparent;
+            color: var(--primary-blue);
+        }
+
+        .msc-heading {
+            font-size: 28px;
+            font-weight: 700;
+            color: #005f99;
+        }
+
+        .msc-muted {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .msc-profile-top-right {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            border-radius: 10px;
+            padding: 20px 24px;
+        }
+
+        .msc-profile-top-right:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .msc-label {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--subheading-color);
+        }
+
+        .msc-label-text {
+            font-size: 0.999rem;
+            color: #333;
+        }
+
+        .msc-info {
+            font-size: 16px;
+            color: var(--subheading-color);
+        }
+
+        .msc-section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+            padding-left: 10px;
+        }
+
+        .msc-section-title-nopad {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+            /* Remove left padding */
+            padding-left: 0;
+        }
+
+        .msc-project-list li {
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: var(--text-color);
+        }
+
+        .msc-btn-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        hr {
+            height: 3px;
+            background-color: #000;
+            /* Dark Black */
+            border: none;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /* Ensure that the left sidebar comes first on smaller screens */
+        @media (max-width: 767px) {
+            .msc-profile-left-sidebar {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Card styling */
+        .custom-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover effect for card */
+        .custom-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Gradient overlay on hover */
+        .custom-card::before {
+            content: '';
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(122, 167, 214, 0.3), transparent);
+            border-top-left-radius: 100% 40%;
+            border-top-right-radius: 100% 40%;
+            transition: bottom 0.6s ease-in-out;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .custom-card:hover::before {
+            bottom: 0;
+        }
+
+        /* Image container styling */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            height: 180px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 100% 30%;
+            border-bottom-right-radius: 100% 30%;
+            box-shadow: inset 0px -20px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Card text styling */
+        .custom-card .card-title {
+            font-size: 1.6rem;
+            color: #005f99;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+
+        /* Card text styling */
+        .custom-card .card-text {
+            font-size: 0.95rem;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        /* Button styling */
+        .msc-project-btn {
+            background-color: #e30613;
+            color: #fff;
+            padding: 8px 16px;
+            font-weight: 600;
+            border: none;
+            font-size: 14px;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        /* Button hover effect */
+        .msc-project-btn:hover {
+            background-color: #0079C2;
+        }
+
+        .msc-project-btn i {
+            margin-left: 5px;
+        }
+
+        /* New class to handle hover movement */
+        .card-body-content {
+            transition: transform 0.5s ease-in-out;
+            z-index: 2;
+        }
+
+        .custom-card:hover .card-body-content {
+            transform: translateY(-20px);
+            /* Moves text and button up */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-4 msc-profile-box">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <div class="col-md-4 order-md-1 order-2">
+                <div class="msc-profile-left-sidebar">
+                    <img src="../assets/img/slider-r.png" class="msc-profile-img mb-4" alt="Profile Picture" />
+                    <div class="msc-profile-details">
+                        <div class="d-flex align-items-center mb-3">
+                            <h5 class="msc-section-title mb-0 me-2">Work</h5>
+                            <div class="flex-grow-1" style="height: 1px; background-color: #dee2e6;"></div>
+                        </div>
+
+
+                        <p class="msc-work-title text-start">
+                            <strong>MSOFTCODE</strong><br />
+                            <small><span>Chandigarh</span><br />Mohali 10038-78 212-312-51</small>
+                        </p>
+                        <p class="msc-work-title text-start">
+                            <strong>MSOFTCODE</strong><br />
+                            <small><span>Haryana</span><br />Jind, NY 10651-78 156-187-60</small>
+                        </p>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <h5 class="msc-section-title mb-0 me-2">Skills</h5>
+                            <div class="flex-grow-1" style="height: 1px; background-color: #dee2e6;"></div>
+                        </div>
+                        <ul class="list-unstyled msc-skills text-start msc-skill">
+                            <li>Branding</li>
+                            <li>UI/UX</li>
+                            <li>Web – Design</li>
+                            <li>Packaging</li>
+                            <li>Print & Editorial</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="col-md-8 order-md-2 order-1 p-4">
+                <div class="msc-profile-top-right">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h3 class="msc-heading">Sunil Kumar</h3>
+                            <p class="msc-muted">Founding partner of MSOFTCODE</p>
+                        </div>
+                    </div>
+
+                    <div class="msc-btn-group mt-3">
+                        <button class="btn btn-outline-primary">
+                            <i class="fas fa-envelope me-2"></i>Send Message
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-user me-2"></i>Contacts
+                        </button>
+                        <a href="https://wa.me/911234567890" target="_blank" class="btn btn-success">
+                            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                        </a>
+                    </div>
+
+
+                </div>
+
+
+                <!-- Tabs -->
+                <ul class="nav nav-tabs mt-4" id="profileTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#about"
+                            type="button" role="tab" aria-controls="about" aria-selected="true">
+                            About
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="projects-tab" data-bs-toggle="tab" data-bs-target="#projects"
+                            type="button" role="tab" aria-controls="projects" aria-selected="false">
+                            Projects
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Contents -->
+                <div class="tab-content mt-4" id="profileTabContent">
+                    <!-- About Tab -->
+                    <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
+                        <div class="row">
+                            <!-- Contact Info -->
+                            <div class="col-md-6">
+                                <h6 class="msc-section-title-nopad">Contact Information</h6>
+                                <p><span class="msc-label">Phone:</span> <a href="#"><span class="msc-label-text">+1 123
+                                            456 7890</span></a></p>
+                                <p><span class="msc-label">Address:</span> <span class="msc-label-text">525 E 68th
+                                        Street, NY</span></p>
+                                <p><span class="msc-label">Email:</span> <a href="#"><span
+                                            class="msc-label-text">hello@jeremyrose.com</span></a></p>
+                                <p><span class="msc-label">Site:</span> <a href="#"><span
+                                            class="msc-label-text">www.jeremyrose.com</span></a></p>
+                            </div>
+
+                            <!-- Basic Info -->
+                            <div class="col-md-6">
+                                <h6 class="msc-section-title-nopad">Basic Information</h6>
+                                <p><span class="msc-label">Birthday:</span> <span class="msc-label-text">June 5,
+                                        1992</span></p>
+                                <p><span class="msc-label">Gender:</span> <span class="msc-label-text">Male</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Projects Tab -->
+                    <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+                        <h6 class="msc-section-title">Recent Projects</h6>
+                        <div class="container mt-4">
+                            <div class="row">
+                                <!-- Card 1 -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card custom-card">
+                                        <div class="image-container">
+                                            <img src="../assets/img/msSoftCode.png" class="img-fluid"
+                                                alt="nurse and patient">
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title fw-bold">Job Portal</h5>
+                                            <p class="card-text text-muted">
+                                                Ecommerce website
+                                            </p>
+                                            <button class="msc-project-btn" onclick="openProjectDetails()">
+                                                View Details &nbsp; <i class="fa-solid fa-arrow-right"></i></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card custom-card">
+                                        <div class="image-container">
+                                            <img src="../assets/img/project1.jpg" class="img-fluid"
+                                                alt="nurse and patient">
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title fw-bold">Job Portal</h5>
+                                            <p class="card-text text-muted">
+                                                Ecommerce website
+                                            </p>
+                                            <button class="msc-project-btn" onclick="openProjectDetails()">
+                                                View Details &nbsp; <i class="fa-solid fa-arrow-right"></i></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="col-md-4 mb-4">
+                                    <div class="card custom-card">
+                                        <div class="image-container">
+                                            <img src="../assets/img/project1.jpg" class="img-fluid"
+                                                alt="nurse and patient">
+                                        </div>
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title fw-bold">Job Portal</h5>
+                                            <p class="card-text text-muted">
+                                                Ecommerce website
+                                            </p>
+                                            <button class="msc-project-btn" onclick="openProjectDetails()">
+                                                View Details &nbsp; <i class="fa-solid fa-arrow-right"></i></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

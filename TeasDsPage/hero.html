@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Section</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-red: #E6001F;
+            --primary-blue: #0079C2;
+            --text-light: #f5f5f5;
+            --text-muted: #dddddd;
+            --bg-dark-overlay: rgba(23, 26, 27, 0.6);
+            --btn-radius: 6px;
+            --font-heading: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-heading);
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .hero-carousel {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero-carousel .carousel-item {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            background-color: var(--bg-dark-overlay);
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 200px;
+        }
+
+        .hero-content h5 {
+            font-weight: 500;
+            font-size: 18px;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-red);
+        }
+
+        .hero-content p {
+            margin-top: 15px;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .hero-content .btn-danger {
+            margin-top: 25px;
+            background-color: var(--primary-red);
+            border: none;
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: var(--btn-radius);
+            transition: all 0.3s ease;
+        }
+
+        .hero-content .btn-danger:hover {
+            background-color: var(--primary-blue);
+            color: #fff;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding-top: 150px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+    <style>
+        .msc-about-section {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+        }
+
+        .msc-subheading {
+            color: #e30613;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .msc-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .msc-paragraph {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .msc-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .msc-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .msc-list li::before {
+            content: "●";
+            color: #e30613;
+            position: absolute;
+            left: 0;
+        }
+
+        .msc-social-icon-min {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .msc-social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            font-size: 20px;
+            text-decoration: none;
+            color: #fff !important;
+        }
+
+        .msc-social-icons .facebook {
+            background-color: #3b5998;
+        }
+
+        .msc-social-icons .twitter {
+            background-color: #000;
+        }
+
+        .msc-social-icons .youtube {
+            background-color: #ff0000;
+        }
+
+        .msc-signature {
+            font-family: cursive;
+            font-size: 1.8rem;
+            margin: 20px 0;
+        }
+
+        .msc-btn-red {
+            background-color: #e30613;
+            color: #fff;
+            padding: 10px 20px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .msc-btn-red:hover {
+            background-color: #c50511;
+        }
+
+        @media (max-width: 768px) {
+            .msc-about-img {
+                margin-top: 30px;
+                text-align: center;
+            }
+
+            .msc-about-img img {
+                max-width: 80%;
+            }
+        }
+
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-bottom-left-radius: 100% 30%;
+            border-bottom-right-radius: 100% 30%;
+        }
+
+
+        /* map */
+        #msc-map {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #8F1E1E;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('../assets/img/slider-r.png');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h5>Meet Our Leader</h5>
+                    <h1>Sunil <span>Mahur</span></h1>
+                    <p>Team Head & Founding Partner at MSOFTCODE, leading with vision and dedication. Overseeing team
+                        operations, guiding projects, and contributing as a Senior Developer with a passion for
+                        innovation and excellence.</p>
+                    <a href="#" class="btn btn-danger">Connect Now &nbsp;<i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+    <!-- team -->
+    <section class="msc-about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Content -->
+                <div class="col-lg-6">
+                    <h6 class="msc-subheading">About Me</h6>
+                    <h2 class="msc-title">Absolutely New Approach to Politics</h2>
+                    <p class="msc-paragraph">
+                        Together we the people achieve more than any single person ever do alone. Design and printing
+                        professionals will help you kea statement that is consistent and sticks. Have a great deal of
+                        nice printing for political campaigns.
+                    </p>
+                    <ul class="msc-list">
+                        <li>Study refuted by scientists behind orig</li>
+                        <li>Working people have made careers out of full.</li>
+                        <li>Working people have made careers out of full.</li>
+                        <li>Like You Want To Member</li>
+                    </ul>
+                    <div class="msc-social-icon-min">
+                        <div class="msc-social-icons d-flex mb-3">
+                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
+                        </div>
+
+                        <div class="msc-signature">Signature</div>
+                    </div>
+
+
+                    <button class="msc-btn-red">
+                        More About &nbsp; <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Right Image -->
+                <div class="col-lg-6 msc-about-img text-center">
+                    <img src="../assets/img/slider-r.png" alt="About" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <div class="card custom-card mx-auto" style="max-width: 350px;">
+            <div class="image-container">
+                <img src="../assets/img/project1.jpg" class="img-fluid" alt="nurse and patient">
+            </div>
+            <div class="card-body text-center">
+                <h5 class="card-title fw-bold">What to expect</h5>
+                <p class="card-text text-muted">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu varius orci, vitae euismod sem.
+                </p>
+                <a href="#" class="btn btn-info text-white fw-bold px-4">Find out what to expect</a>
+            </div>
+        </div>
+    </div>
+<div class="hm">
+    <div class="circle"></div>
+</div>
+   
+
+
+
+<!-- Add this in your HTML where you want the map to appear -->
+<div id="msc-map" style="height: 400px; width: 100%; border-radius: 20px; margin-top: 2rem;"></div>
+
+<!-- Google Maps Script (replace YOUR_API_KEY) -->
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+
+<script>
+  function initMap() {
+    const chandigarh = { lat: 30.7046, lng: 76.7179 };
+    const jind = { lat: 29.3158, lng: 76.3167 };
+
+    const map = new google.maps.Map(document.getElementById("msc-map"), {
+      zoom: 7,
+      center: { lat: 30.1, lng: 76.5 }, // Centered between both
+    });
+
+    const marker1 = new google.maps.Marker({
+      position: chandigarh,
+      map: map,
+      title: "MSOFTCODE Chandigarh Office",
+    });
+
+    const marker2 = new google.maps.Marker({
+      position: jind,
+      map: map,
+      title: "MSOFTCODE Jind Office",
+    });
+  }
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

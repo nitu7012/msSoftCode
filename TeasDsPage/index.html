@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me Section</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        #msc-team-mains-section {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /*left section */
+        .msc-team-main-left-container {
+            position: relative;
+        }
+
+        .msc-team-main-left-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+            padding: 20px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .msc-team-main-left-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 5px solid #0079C2;
+            border-left: 5px solid #e30613;
+            animation: borderAnimation 2s ease-in-out infinite;
+        }
+
+        @keyframes borderAnimation {
+            0% {
+                width: 0;
+                height: 0;
+            }
+
+            25% {
+                width: 50%;
+                height: 0;
+            }
+
+            50% {
+                width: 50%;
+                height: 50%;
+            }
+
+            75% {
+                width: 0;
+                height: 50%;
+            }
+
+            100% {
+                width: 0;
+                height: 0;
+            }
+        }
+
+        .msc-border-left-cont::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-bottom: 5px solid #0079C2;
+            border-right: 5px solid #e30613;
+            animation: dobleAnimation 2s ease-in-out infinite;
+        }
+
+        @keyframes dobleAnimation {
+            0% {
+                width: 0;
+                height: 0;
+            }
+
+            25% {
+                width: 50%;
+                height: 0;
+            }
+
+            50% {
+                width: 50%;
+                height: 50%;
+            }
+
+            75% {
+                width: 0;
+                height: 50%;
+            }
+
+            100% {
+                width: 0;
+                height: 0;
+            }
+        }
+
+        .msc-img-container {
+            margin-bottom: 1rem;
+        }
+
+        .msc-img-wrapper {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .msc-team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 50%;
+            border: 3px solid #0079C2;
+        }
+
+        /* btn */
+        .msc-social-icons {
+            margin-top: 0.6rem;
+        }
+
+        .msc-social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            font-size: 20px;
+            text-decoration: none;
+            color: #fff !important;
+        }
+
+        .msc-social-icons .facebook {
+            background-color: #3b5998;
+        }
+
+        .msc-social-icons .twitter {
+            background-color: #000;
+        }
+
+        .msc-social-icons .youtube {
+            background-color: #ff0000;
+        }
+
+
+        /* team name */
+        .msc-title-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .msc-team-role {
+            margin: 10px 0;
+        }
+
+        .msc-role {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #0079C2;
+        }
+
+        .msc-designation {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+
+        /* left section end */
+        /* right section */
+        .msc-team-main-right-container {
+            height: 100%;
+            padding: 24px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        }
+
+        .msc-team-main-right-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .msc-skills {
+            margin-top: 1.5rem;
+            width: 100%;
+            text-align: left;
+        }
+
+        .msc-skills-list {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .msc-skill {
+            font-size: 0.95rem;
+            color: #333;
+            background-color: #f1f1f1;
+            padding: 8px 15px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            /* Added cursor pointer for better UX */
+        }
+
+        .msc-skill:hover {
+            background-color: #0079C2;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .msc-subheading {
+            color: #e30613;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+
+        /* Project card */
+        .msc-projects {
+            margin-top: 1.5rem;
+        }
+
+        .msc-project-main-right-wrapper {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .msc-project-main-right-wrapper:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .msc-project-main-right-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            width: 33%;
+            margin-top: 1.5rem;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+
+        .msc-right-img-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .msc-project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 50%;
+            border: 3px solid #0079C2;
+        }
+
+        .msc-project-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .msc-project-btn {
+            background-color: #e30613;
+            color: #fff;
+            padding: 8px 16px;
+            font-weight: 600;
+            border: none;
+            font-size: 14px;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        .msc-project-btn:hover {
+            background-color: #0079C2;
+        }
+
+        .msc-project-btn i {
+            margin-left: 5px;
+        }
+
+        /* Modal */
+        .msc-project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .msc-project-details-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .msc-project-details-card {
+            display: flex;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 1000px;
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        }
+
+        .msc-project-details-right::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* models left */
+        .msc-project-img-container-left {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            /* Vertically center image */
+            justify-content: center;
+            /* Optional: horizontal center */
+            padding: 10px;
+            /* Space around the image */
+            box-sizing: border-box;
+            /* So padding stays within 60% */
+        }
+
+        .msc-project-img-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .msc-project-img-large {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            display: block;
+        }
+
+
+        /* models left end */
+        .msc-project-details-right {
+            flex: 1;
+            gap: 0.7rem;
+            overflow-y: auto;
+            scrollbar-width: none;
+            padding-left: 16px;
+        }
+
+        .msc-project-details-right h3 {
+            color: #e30613;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .msc-project-feature li {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .msc-project-feature li .fas {
+            color: #e30613;
+        }
+
+        .msc-project-feature span {
+            color: #1a1a1a;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .msc-project-details-right strong {
+            color: #093b5a;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .msc-project-details-right p {
+            color: #1a1a1a;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Close Button */
+        .msc-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .msc-close-btn i {
+            font-size: 1.5rem;
+        }
+
+        /* Overlay */
+        .msc-overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+
+        /* Wrapper with animated border */
+        .msc-project-details-card::before {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            top: 0;
+            left: -100%;
+            background: linear-gradient(to right, #0079C2, #e30613);
+            animation: moveTop 2s linear infinite;
+        }
+
+        .msc-project-details-card::after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            bottom: 0;
+            right: -100%;
+            background: linear-gradient(to left, #0079C2, #e30613);
+            animation: moveBottom 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        /* Side lines */
+        .msc-project-details-card .border-left,
+        .msc-project-details-card .border-right {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #0079C2, #e30613);
+        }
+
+        .msc-project-details-card .border-left {
+            top: -100%;
+            left: 0;
+            animation: moveLeft 2s linear infinite;
+            animation-delay: 0.5s;
+        }
+
+        .msc-project-details-card .border-right {
+            bottom: -100%;
+            right: 0;
+            animation: moveRight 2s linear infinite;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes moveTop {
+            0% {
+                left: -100%;
+            }
+
+            50% {
+                left: 0;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes moveBottom {
+            0% {
+                right: -100%;
+            }
+
+            50% {
+                right: 0;
+            }
+
+            100% {
+                right: 100%;
+            }
+        }
+
+        @keyframes moveLeft {
+            0% {
+                top: -100%;
+            }
+
+            50% {
+                top: 0;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        @keyframes moveRight {
+            0% {
+                bottom: -100%;
+            }
+
+            50% {
+                bottom: 0;
+            }
+
+            100% {
+                bottom: 100%;
+            }
+        }
+
+        /* Outer animated gradient border */
+
+        /* mobile responsive */
+        @media (max-width: 768px) {
+
+            /* Stack left and right sections */
+            .msc-team-main-left-container,
+            .msc-team-main-right-container {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .msc-img-wrapper img {
+                width: 150px;
+                height: auto;
+            }
+
+            .msc-team-name,
+            .msc-team-role {
+                margin-top: 10px;
+            }
+
+            .msc-social-icons {
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            /* Project modal adjustments */
+            .msc-project-ditails-wrapper {
+                padding: 10px;
+            }
+
+            .msc-project-detaols-card-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .msc-project-details-card {
+                flex-direction: column;
+                width: 100%;
+                height: auto;
+                padding: 15px;
+            }
+
+            .msc-project-img-container-left {
+                display: none;
+            }
+
+            .msc-project-details-card {
+                flex-direction: column;
+                padding: 1rem;
+                max-height: 90vh;
+                /* Limiting height to viewport */
+                overflow-y: auto;
+                /* Enable vertical scroll */
+            }
+
+
+            .msc-project-details-right {
+                width: 100%;
+                padding: 0 15px;
+                text-align: left;
+            }
+
+            .msc-project-details-right h3 {
+                text-align: center;
+            }
+
+            .msc-skills-list {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5px;
+            }
+
+            .msc-skill {
+                padding: 4px 10px;
+                font-size: 14px;
+                margin: 3px;
+            }
+
+            .msc-project-btn {
+                margin-top: 10px;
+                padding: 6px 14px;
+                font-size: 14px;
+            }
+
+            .msc-project-main-right-wrapper {
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Team all description -->
+    <section id="msc-team-mains-section">
+        <div class="msc-team-main-section-wrapper">
+            <div class="container">
+                <div class="row">
+                    <!-- Left section -->
+                    <div class="col-md-4">
+                        <div class="msc-team-main-left-container">
+                            <div class="msc-border-left-cont">
+                                <div class="msc-team-main-left-wrapper">
+                                    <!--Team img -->
+                                    <div class="msc-img-container">
+                                        <div class="msc-img-wrapper">
+                                            <img src="../assets/img/slider-r.png" alt="" class="msc-team-img">
+                                        </div>
+                                    </div>
+                                    <!-- Team name -->
+                                    <div class="msc-team-name">
+                                        <span class="msc-title-name">Sunil Kumar</span>
+                                    </div>
+                                    <div class="msc-team-role">
+                                        <span class="msc-role">Founding Partner</span>
+                                        <span class="msc-designation">Senior Developer</span>
+                                    </div>
+
+                                    <!-- Team Socil icons -->
+                                    <div class="msc-social-icons d-flex">
+                                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                                        <a href="#" class="youtube"><i class="bi bi-youtube"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="msc-team-main-right-container">
+                            <div class="msc-team-main-right-wrapper">
+                                <!-- Description -->
+                                <div class="msc-team-description">
+                                    <h6 class="msc-subheading">About Me</h6>
+                                    <span class="msc-des">
+                                        Founding partner of MSOFTCODE, responsible for leading teams, managing
+                                        full-cycle project development,
+                                        and ensuring timely delivery. As a Senior Developer, I actively contribute to
+                                        coding, architecture
+                                        planning, and performance optimization. Passionate about building scalable
+                                        solutions, mentoring
+                                        developers, and driving innovation to meet client needs and exceed expectations.
+                                    </span>
+                                </div>
+                                <div class="msc-skills">
+                                    <h6 class="msc-subheading">Skills</h6>
+                                    <div class="msc-skills-list">
+                                        <span class="msc-skill">JavaScript</span>
+                                        <span class="msc-skill">React.js</span>
+                                        <span class="msc-skill">Node.js</span>
+                                        <span class="msc-skill">MongoDB</span>
+                                    </div>
+                                </div>
+                                <!-- Team Projects Section -->
+                            </div>
+                            <div class="msc-projects">
+                                <div class="msc-project-wrapper">
+                                    <div class="msc-project-card">
+                                        <h6 class="msc-subheading">Projects</h6>
+                                        <div class="msc-project-main-right-container">
+                                            <div class="msc-project-main-right-wrapper">
+                                                <!-- Team img -->
+                                                <div class="msc-right-img-container">
+                                                    <div class="msc-right-img-wrapper">
+                                                        <img src="../assets/img/ChatGPT Image Apr 20, 2025, 01_05_21 AM.png"
+                                                            alt="" class="msc-project-img">
+                                                    </div>
+                                                </div>
+                                                <!-- Team name -->
+                                                <div class="msc-project-name">
+                                                    <span class="msc-project-title">Event Management</span>
+                                                </div>
+                                                <div class="msc-project-Type">
+                                                    <span>Ecommerce Website</span>
+                                                </div>
+                                                <button class="msc-project-btn" onclick="openProjectDetails()">
+                                                    View Details &nbsp; <i class="bi bi-arrow-right"></i>
+                                                </button>
+                                            </div>
+
+                                            <!-- Modal/Project Details Popup -->
+                                            <div id="projectModal" class="msc-project-modal">
+                                                <div class="msc-project-ditails-wrapper">
+                                                    <div class="msc-project-detaols-card-wrapper">
+                                                        <div class="msc-project-details-card">
+
+                                                            <div class="msc-project-img-container-left">
+                                                                <div class="msc-project-img-wrapper">
+                                                                    <img src="../assets/img/project1.jpg"
+                                                                        alt="Project Image"
+                                                                        class="msc-project-img-large">
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="msc-project-details-right">
+                                                                <h3>About Project</h3>
+                                                                <p class="mt-2">Event Management is a platform for
+                                                                    managing events
+                                                                    with
+                                                                    ecommerce
+                                                                    integration for ticket sales and registrations.</p>
+                                                                <p class="mt-2"><strong>Created By:</strong> Sunil Kumar
+                                                                </p>
+                                                                <p><strong>Role:</strong> Frontend Developer</p>
+                                                                <p><strong>Date:</strong> 2025-04-21</p>
+                                                                <p><strong>Tech Stack:</strong> HTML, CSS, JavaScript,
+                                                                    Node.js,
+                                                                    MongoDB</p>
+                                                                <p><strong>Key Features:</strong></p>
+                                                                <ul class="msc-project-feature">
+                                                                    <li><i class="fas fa-hand-point-right"></i><span>User
+                                                                            registration and login</span></li>
+                                                                    <li> <i class="fas fa-hand-point-right"></i><span>Event
+                                                                            creation and management</span></li>
+                                                                    <li> <i class="fas fa-hand-point-right"></i><span>Online
+                                                                            ticket booking</span></li>
+                                                                    <li><i class="fas fa-hand-point-right"></i><span>Real-time
+                                                                            notifications</span></li>
+                                                                </ul>
+                                                                <p><strong>Challenges Faced:</strong> Implementing
+                                                                    real-time
+                                                                    updates and optimizing for performance on mobile
+                                                                    devices.
+                                                                </p>
+                                                             
+                                                                <button class="msc-project-btn">
+                                                                   <a href="" style="text-decoration: none; color: white; font-weight: 600;">Visit Project &nbsp; <i class="bi bi-arrow-right"></i></a>
+                                                                </button>
+
+                                                            </div>
+                                                            <button class="msc-close-btn"
+                                                                onclick="closeProjectDetails()">
+                                                                <i class="bi bi-x-lg"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- Background Overlay -->
+                                            <div id="overlay" class="msc-overlay"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- right section -->
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<!-- script -->
+<script>
+    function openProjectDetails() {
+        document.getElementById('projectModal').style.display = 'flex';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closeProjectDetails() {
+        document.getElementById('projectModal').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    // Close modal when clicking anywhere outside the modal content
+    window.onclick = function (event) {
+        if (event.target === document.getElementById('overlay')) {
+            closeProjectDetails();
+        }
+    }
+
+</script>
+
+</html>
