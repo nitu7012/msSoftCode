@@ -145,6 +145,23 @@
             box-shadow: none;
         }
 
+
+        .social-icons i {
+      font-size: 20px;
+      padding: 10px 15px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .social-icons i:hover {
+      background: #f0f0f0;
+    }
+    .login-btns button {
+      margin: 0 10px 20px 0;
+      width: 100px;
+    }
         @media (max-width: 768px) {
             .msc-overlay-text h3 {
                 font-size: 22px;
@@ -186,7 +203,11 @@
                 <div>
                     <h4 class="mb-4 msc-logo">Welcome</h4>
                     <h2 class="fw-bold msc-heading">Login To Doctor Panel</h2>
-
+                    <div class="login-btns mb-3">
+                        <button class="btn btn-success">Admin</button>
+                        <button class="btn btn-warning text-white">Doctor</button>
+                        <button class="btn btn-primary">Patient</button>
+                      </div>
                     <form>
                         <div class="form-group">
                             <input type="number" class="form-control" placeholder=" " id="userid" required />
@@ -215,6 +236,14 @@
                         </div>
 
                         <button type="submit" class="btn btn-dark w-100 mt-4">Login</button>
+
+                        <div class="text-center mb-2">OR</div>
+                        <div class="text-center social-icons">
+                          <i class="fab fa-google"></i>
+                          <i class="fab fa-facebook-f"></i>
+                          <i class="fab fa-twitter"></i>
+                          <i class="fab fa-linkedin-in"></i>
+                        </div>
                     </form>
 
                 </div>
